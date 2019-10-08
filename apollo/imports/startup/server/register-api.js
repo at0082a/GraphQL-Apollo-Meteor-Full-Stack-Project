@@ -23,6 +23,10 @@ const resolvers = {
     {
       _id: "sshhksds",
       name: "Brush your teeth"
+    },
+    {
+      _id: "alextalex",
+      name: "Do Laundry"
     }
   ]; 
   }
