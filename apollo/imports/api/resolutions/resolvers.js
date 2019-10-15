@@ -8,5 +8,13 @@ export default {
       resolutions() {
         return Resolutions.find({}).fetch();
     }
-  } 
+  }, 
+
+  Mutation: {
+    createResolution() {
+      const resolutionId = Resolutions.insert({
+        name: "Test Res"
+      });
+    }
+  }
 };

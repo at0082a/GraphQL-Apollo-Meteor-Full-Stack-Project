@@ -12,6 +12,8 @@ type Query {
   hi: String
 }`;
 
+//hi
+
 const typeDefs = [testSchema, ResolutionsSchema];
 
 //resolvers are functions that set inputs or values in the schema (TypeDefs)
