@@ -12,7 +12,7 @@ type Query {
   hi: String
 }`;
 
-//hi
+//djsdk
 
 const typeDefs = [testSchema, ResolutionsSchema];
 
