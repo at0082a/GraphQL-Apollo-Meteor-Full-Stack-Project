@@ -40,8 +40,6 @@ class ResolutionForm extends Component {
   }
 
   render () {
-    // let todo = this.state.name;
-    // console.log(todo);
     return (
     <div>
         <input 
