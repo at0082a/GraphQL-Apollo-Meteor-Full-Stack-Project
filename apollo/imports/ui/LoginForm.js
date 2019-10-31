@@ -1,24 +1,23 @@
 import React, { Component } from "react";
+import { Accounts } from "meteor/accounts-base";
 
-
-class RegisterForm extends Component {
+class LoginForm extends Component {
+  
   constructor(props) {
     super(props);
-    this.state = { 
-      email: "",
-      password: "" 
-    };
-    this.registerUser = this.registerUser.bind(this);
+      this.state = {
+        name: "",
+        email: ""
+      };
+    this.loginUser = this.loginUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  registerUser (event) {
+  loginUser (event) {
     event.preventDefault();
-    Accounts.createUser(
-      {
-        email: this.state.email,
-        password: this.state.password
-      },
+    Meteor.loginWithPassword(
+      this.state.email,
+      this.state.password,
       error => {
         console.log(error);
       }
@@ -30,9 +29,9 @@ class RegisterForm extends Component {
     this.setState({[event.target.name]: value});
   }
 
-  render() {
+  render () {
     return (
-      <form onSubmit={ this.registerUser }>
+      <form onSubmit={ this.loginUser }>
         <input
           type="email"
           name="email"
@@ -45,9 +44,10 @@ class RegisterForm extends Component {
           value={ this.state.password }
           onChange= { this.handleChange }
         />
-        <button type="submit" value="submit"> Register User </button>
+        <button type="submit" value="submit"> Login User </button>
       </form>
-  )}
+    )
+  }
 }
 
-export default RegisterForm;
+export default LoginForm;
