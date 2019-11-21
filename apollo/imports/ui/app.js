@@ -11,6 +11,7 @@ const App = ({ loading, resolutions }) =>  {
     <div>
       <RegisterForm/>
       <LoginForm/>
+      <button onClick= {() => Meteor.logout()}> LogOut </button>
       <ResolutionForm/>
         <ul>
           { resolutions.map(resolution => (

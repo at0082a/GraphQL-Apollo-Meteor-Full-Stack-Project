@@ -5,7 +5,8 @@ export default {
       hi() {
         return "hello graphql world";
       },
-      resolutions() {
+      resolutions(obj, args, context) {
+        console.log(context.userId);
         return Resolutions.find({}).fetch();
     }
   }, 
