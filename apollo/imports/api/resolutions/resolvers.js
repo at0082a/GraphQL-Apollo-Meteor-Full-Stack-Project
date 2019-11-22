@@ -5,19 +5,20 @@ export default {
       hi() {
         return "hello graphql world";
       },
-      resolutions(obj, args, context) {
-        console.log(context.userId);
-        return Resolutions.find({}).fetch();
+      resolutions(obj, args, { userId }) {
+        return Resolutions.find({ userId }).fetch();
     }
   }, 
 
   Mutation: {
-    createResolution(obj, { name }, context) {
-      console.log(name);
-      const resolutionId = Resolutions.insert({
-        name
-      });
-      return Resolutions.findOne(resolutionId);
+    createResolution(obj, { name }, { userId }) {
+      if (userId) {
+        const resolutionId = Resolutions.insert({
+          name, 
+          userId
+        });
+        return Resolutions.findOne(resolutionId);
+      }
     }
   }
 };

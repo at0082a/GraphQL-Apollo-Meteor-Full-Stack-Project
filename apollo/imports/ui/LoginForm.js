@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Accounts } from "meteor/accounts-base";
+import { withApollo } from "react-apollo"
 
 class LoginForm extends Component {
   
